@@ -1,19 +1,24 @@
-import {AppBar, Stack, Typography, Icon, IconButton} from '@mui/material'
-import { useAtom } from 'jotai'
-import { sidebarOpenAtom } from '.'
+import {AppBar, Typography, Icon, IconButton, styled} from '@mui/material'
+import {useSetAtom} from 'jotai'
+import {sidebarOpenAtom} from '.'
 
 export default function Header() {
-  const [open, setOpen] = useAtom(sidebarOpenAtom)
+  const setOpen = useSetAtom(sidebarOpenAtom)
   return (
-    <AppBar sx={{position: 'static'}}>
-      <Stack direction='row' alignItems='center' >
-        <IconButton onClick={() => setOpen(prev => !prev)}>
-          <Icon >menu</Icon>
-        </IconButton>
-        <Typography variant="h6" noWrap>
-          Hoge
-        </Typography>
-      </Stack>
-    </AppBar>
+    <StyledAppBar>
+      <IconButton onClick={() => setOpen(prev => !prev)}>
+        <Icon >menu</Icon>
+      </IconButton>
+      <Typography variant="h6" noWrap>
+        Hoge
+      </Typography>
+    </StyledAppBar>
   )
 }
+
+const StyledAppBar = styled(AppBar)({
+  position     : 'static',
+  display      : 'flex',
+  alignItems   : 'center',
+  flexDirection: 'row'
+})
