@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState(0)
   return (
     <Frame>
-      <div style={{backgroundColor: 'red', width: '100%'}}/>
+      <div style={{backgroundColor: 'red', width: '100%'}}>fuga</div>
       {/* <Canvas>
         <ambientLight intensity={0.1} />
         <directionalLight color="red" position={[0, 0, 5]} />

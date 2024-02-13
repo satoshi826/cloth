@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <StyledAppBar>
       <IconButton onClick={() => setOpen(prev => !prev)}>
-        <Icon >menu</Icon>
+        <Icon>menu</Icon>
       </IconButton>
       <Typography variant="h6" noWrap>
         Hoge
