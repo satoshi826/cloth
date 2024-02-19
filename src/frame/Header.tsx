@@ -6,19 +6,22 @@ export default function Header() {
   const setOpen = useSetAtom(sidebarOpenAtom)
   return (
     <StyledAppBar>
-      <IconButton onClick={() => setOpen(prev => !prev)}>
-        <Icon>menu</Icon>
+      <IconButton onClick={() => setOpen(prev => !prev)} color='inherit'>
+        <Icon >menu</Icon>
       </IconButton>
-      <Typography variant="h6" noWrap>
-        Hoge
-      </Typography>
+      {/* <Typography variant="h6" noWrap>
+        Title
+      </Typography> */}
     </StyledAppBar>
   )
 }
 
-const StyledAppBar = styled(AppBar)({
+const StyledAppBar = styled(AppBar)(({theme}) => ({
   position     : 'static',
   display      : 'flex',
+  padding      : theme.spacing(0.5, 1),
+  gap          : theme.spacing(1),
   alignItems   : 'center',
-  flexDirection: 'row'
-})
+  flexDirection: 'row',
+  color        : 'white'
+}))

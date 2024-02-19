@@ -1,13 +1,15 @@
 import {Drawer, Stack, styled} from '@mui/material'
 import {useAtom} from 'jotai'
 import {SIDEBAR_WIDTH, sidebarOpenAtom} from '.'
+import {useIsXs} from '../common/hooks'
 
 export default function Sidebar() {
   const [open, setOpen] = useAtom(sidebarOpenAtom)
+  const isXs = useIsXs()
   return (
-    <StyledDrawer open={open} variant="persistent" >
+    <StyledDrawer open={open} onClose={() => setOpen(false)} variant={isXs ? 'temporary' : 'persistent'} >
       <Stack>
-        <div>hoge</div>
+        <div>empty</div>
       </Stack>
     </StyledDrawer>
   )
@@ -15,20 +17,30 @@ export default function Sidebar() {
 
 const StyledDrawer = styled(Drawer)(({
   open,
-  theme : {transitions : {
-    duration : {enteringScreen, leavingScreen},
-    easing: {easeIn, easeOut}
-  }}}) => ({
-  '&.MuiDrawer-root': {
-    transition: 'width ' + (open ? enteringScreen : leavingScreen) + 'ms ' + (open ? easeOut : easeIn),
-    width     : open ? SIDEBAR_WIDTH : 0
-  },
-  '&.MuiDrawer-docked': {
-    position: 'relative'
-  },
+  theme : {
+    transitions : {
+      duration : {enteringScreen, leavingScreen},
+      easing: {easeIn, easeOut}
+    },
+    zIndex : {appBar},
+    breakpoints
+  }}) => ({
   '.MuiPaper-root': {
-    position: 'absolute',
-    width   : SIDEBAR_WIDTH
+    width : SIDEBAR_WIDTH,
+    zIndex: appBar - 1
+  },
+  [breakpoints.up('sm')]: {
+    '&.MuiDrawer-root': {
+      transition: 'width ' + (open ? enteringScreen : leavingScreen) + 'ms ' + (open ? easeOut : easeIn),
+      width     : open ? SIDEBAR_WIDTH : 0
+    },
+    '&.MuiDrawer-docked': {
+      position: 'relative'
+    },
+    '.MuiPaper-root': {
+      position: 'absolute',
+      width   : SIDEBAR_WIDTH
+    }
   }
 }
 ))
