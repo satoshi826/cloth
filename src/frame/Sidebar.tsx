@@ -1,7 +1,7 @@
 import {Drawer, Stack, styled} from '@mui/material'
 import {useAtom} from 'jotai'
+import {useIsXs} from '../theme/hooks'
 import {SIDEBAR_WIDTH, sidebarOpenAtom} from '.'
-import {useIsXs} from '../common/hooks'
 
 export default function Sidebar() {
   const [open, setOpen] = useAtom(sidebarOpenAtom)

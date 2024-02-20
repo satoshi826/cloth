@@ -1,13 +1,14 @@
 import {styled} from '@mui/material'
-import {Canvas as R3FCanvas} from '@react-three/fiber'
 import {OrbitControls} from '@react-three/drei'
-import Room from '../mesh/Room'
+import {Canvas as R3FCanvas} from '@react-three/fiber'
+import {PointLight} from '../mesh/PointLight'
+import {Room} from '../mesh/Room'
 
 export function Canvas() {
   return (
     <StyledCanvas>
       <ambientLight intensity={0.2} />
-      <pointLight position={[0, 0, 0]} intensity={50} decay={2} />
+      <PointLight position={[0, 0, 2]} intensity={10} decay={2} helper/>
       <mesh>
         <boxGeometry />
         <meshStandardMaterial />

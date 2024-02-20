@@ -1,6 +1,6 @@
 import {BackSide} from 'three'
 
-export default function Room() {
+export function Room() {
   return(
     <mesh >
       <boxGeometry args={ [10, 4, 10]} />

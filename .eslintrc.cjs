@@ -8,6 +8,9 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime'
   ],
+  plugins: [
+    "import",
+  ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser        : '@typescript-eslint/parser',
   rules         : {
@@ -48,5 +51,35 @@ module.exports = {
     'react/self-closing-comp'            : ['warn', {component: true, html: true}],
     'react/void-dom-elements-no-children': 'error',
     'react/react-in-jsx-scope'           : 0,
-    "react/no-unknown-property": ["off", { "ignore": ["JSX"] }],  }
+    "react/no-unknown-property": ["off", { "ignore": ["JSX"] }],
+    "react/jsx-props-no-multi-spaces"    : 2,
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent","sibling"],
+          "object",
+          "type",
+          "index"
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "pathGroups": [ // 指定した順番にソートされる
+        {
+          "pattern": "react",
+          "group": "external",
+          "position": "before"
+        },
+      ]
+      }
+    ]
+  }
 }

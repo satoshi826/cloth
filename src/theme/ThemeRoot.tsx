@@ -1,5 +1,5 @@
-import {ThemeProvider, createTheme} from '@mui/material'
 import {useMemo} from 'react'
+import {ThemeProvider, createTheme} from '@mui/material'
 
 export function ThemeRoot({children} : React.PropsWithChildren) {
 

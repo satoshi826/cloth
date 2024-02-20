@@ -1,4 +1,4 @@
-import {AppBar, Typography, Icon, IconButton, styled} from '@mui/material'
+import {AppBar, Icon, IconButton, styled} from '@mui/material'
 import {useSetAtom} from 'jotai'
 import {sidebarOpenAtom} from '.'
 

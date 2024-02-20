@@ -1,5 +1,5 @@
-import {Frame} from './frame'
 import {Canvas} from './common/Canvas'
+import {Frame} from './frame'
 
 function App() {
   return (
