@@ -1,19 +1,21 @@
-import {Stack} from '@mui/material'
+import {atom} from 'jotai'
+import {Stack as MUIStack, styled} from '@mui/material'
 import Header from './Header'
 import Sidebar from './Sidebar'
-import {atom} from 'jotai'
 
 export const sidebarOpenAtom = atom(true)
 export const SIDEBAR_WIDTH = 200
 
 export function Frame({children} : React.PropsWithChildren) {
   return (
-    <Stack sx={{height: '100%'}}>
+    <Stack >
       <Header/>
-      <Stack direction='row' sx={{height: '100%'}}>
+      <Stack direction='row'>
         <Sidebar/>
         {children}
       </Stack>
     </Stack>
   )
 }
+
+const Stack = styled(MUIStack)({height: '100%'})

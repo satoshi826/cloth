@@ -39,6 +39,7 @@ module.exports = {
     'space-in-parens'                    : 2,
     'space-before-blocks'                : 2,
     'space-before-function-paren'        : [2, 'never'],
+    "max-len"                            : [2, { "code": 120 }],
     'no-duplicate-imports'               : 'warn',
     'react/no-access-state-in-setstate'  : 'error',
     'react/jsx-boolean-value'            : 'warn',
@@ -47,5 +48,5 @@ module.exports = {
     'react/self-closing-comp'            : ['warn', {component: true, html: true}],
     'react/void-dom-elements-no-children': 'error',
     'react/react-in-jsx-scope'           : 0,
-  }
+    "react/no-unknown-property": ["off", { "ignore": ["JSX"] }],  }
 }

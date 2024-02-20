@@ -6,8 +6,9 @@ import {useIsXs} from '../common/hooks'
 export default function Sidebar() {
   const [open, setOpen] = useAtom(sidebarOpenAtom)
   const isXs = useIsXs()
+  const variant = isXs ? 'temporary' : 'persistent'
   return (
-    <StyledDrawer open={open} onClose={() => setOpen(false)} variant={isXs ? 'temporary' : 'persistent'} >
+    <StyledDrawer open={open} onClose={() => setOpen(false)} variant={variant} >
       <Stack>
         <div>empty</div>
       </Stack>
