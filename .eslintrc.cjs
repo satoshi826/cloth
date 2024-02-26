@@ -72,7 +72,7 @@ module.exports = {
           "order": "asc",
           "caseInsensitive": true
         },
-        "pathGroups": [ // 指定した順番にソートされる
+        "pathGroups": [
         {
           "pattern": "react",
           "group": "external",

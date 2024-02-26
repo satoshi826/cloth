@@ -1,12 +1,14 @@
 import {styled} from '@mui/material'
-import {OrbitControls} from '@react-three/drei'
 import {Canvas as R3FCanvas} from '@react-three/fiber'
+import {Camera} from './Camera'
 import {PointLight} from '../mesh/PointLight'
 import {Room} from '../mesh/Room'
 
 export function Canvas() {
   return (
-    <StyledCanvas>
+    <StyledCanvas camera={{fov: 70, near: 0.1, far: 190, position: [0, 0, 0.0001]}}
+    >
+      <Camera/>
       <ambientLight intensity={0.2} />
       <PointLight position={[0, 0, 2]} intensity={10} decay={2} helper/>
       <mesh>
@@ -14,15 +16,6 @@ export function Canvas() {
         <meshStandardMaterial />
       </mesh>
       <Room/>
-      <OrbitControls
-        // camera={camera}
-        // domElement={domElement}
-        // enablePan={false}
-        // maxPolarAngle={ 1.95 * Math.PI / 3}
-        // minPolarAngle={ 1.05 * Math.PI / 3}
-        // minDistance={10}
-        // maxDistance={80}
-      />
     </StyledCanvas>
   )
 }

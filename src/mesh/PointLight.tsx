@@ -1,22 +1,17 @@
-import {MutableRefObject, forwardRef, useRef} from 'react'
+import {useRef} from 'react'
 import {useHelper} from '@react-three/drei'
 import {PointLightProps} from '@react-three/fiber'
-import {Object3D, PointLightHelper} from 'three'
+import {PointLightHelper} from 'three'
 
-type PointLightType = typeof PointLight
+type Props = PointLightProps & { helper? : boolean}
 
-export function PointLight(props : PointLightProps & { helper? : boolean}) {
-  const {helper} = props
-  const ref = useRef<PointLightType>()
-  return (
-    <>
-      {helper && <Helper ref={ref}/>}
-      <pointLight ref={ref} {...props} />
-    </>
-  )
+export function PointLight({helper = false, ...props} : Props) {
+  const ref = useHelperRef(helper)
+  return <pointLight ref={ref} {...props} />
 }
 
-const Helper = forwardRef(function Helper(_, ref : Ref<PointLightType>) {
+const useHelperRef = (helper : boolean) => {
+  const ref = useRef(null!)
   useHelper(ref, PointLightHelper, 1)
-  return null
-})
+  return helper ? ref : null
+}
