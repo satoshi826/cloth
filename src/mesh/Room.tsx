@@ -9,7 +9,7 @@ export function Room() {
         <meshPhongMaterial side={BackSide} color='#777' />
       </mesh>
       <CuboidCollider
-        position={[0, -2.5, 0]}
+        position={[0, -3, 0]}
         args={[10, 1, 10]}
       />
     </>
